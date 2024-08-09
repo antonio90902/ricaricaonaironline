@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento con PayPal</title>
+</head>
+<div style="text-align: center;"> <img src="OnairLogo.jpg" height="300" width="700" > </div>
+<body style="text-align: center">
+    
+    <h1>Pagamento di 15 Euro</h1>
+    <p>Inserisci il tuo nome e premi il pulsante per pagare 15 euro tramite PayPal.</p>
+
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+        <!-- Campi nascosti richiesti per PayPal -->
+        <input type="hidden" name="cmd" value="_xclick">
+        <input type="hidden" name="business" value="ant.9850@gmail.com">
+        <input type="hidden" name="item_name" value="Pagamento Fisso">
+        <input type="hidden" name="amount" value="15.00">
+        <input type="hidden" name="currency_code" value="EUR">
+        
+        <!-- Campo per il nome dell'utente -->
+        <label for="payer_name">Nome:</label>
+        <input type="text" id="payer_name" name="payer_name" required>
+        
+        <!-- Campi per l'invio del nome a PayPal -->
+        <input type="hidden" name="on0" value="Nome">
+        <input type="hidden" id="os0" name="os0" value="">
+        
+        <input type="submit" value="Paga con PayPal">
+        
+        <script>
+            document.querySelector('form').addEventListener('submit', function() {
+                document.getElementById('os0').value = document.getElementById('payer_name').value;
+            });
+        </script>
+    </form>
+</body>
+</html>
