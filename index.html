@@ -4,17 +4,104 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagamento con PayPal</title>
+    <style>
+        /* Stili di base */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p {
+            font-size: 1em;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        label {
+            font-size: 1em;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #0070ba;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005a9c;
+        }
+
+        /* Responsività */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            form {
+                padding: 15px;
+            }
+
+            input[type="submit"] {
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
-<div style="text-align: center;"> <img src="OnairLogo.jpg" height="300" width="700" > </div>
-<body style="text-align: center">
-    
+<body>
     <h1>Pagamento di 15 Euro</h1>
     <p>Inserisci il tuo nome e premi il pulsante per pagare 15 euro tramite PayPal.</p>
 
     <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
         <!-- Campi nascosti richiesti per PayPal -->
         <input type="hidden" name="cmd" value="_xclick">
-        <input type="hidden" name="business" value="ant.9850@gmail.com">
+        <input type="hidden" name="business" value="IL_TUO_EMAIL_PAYPAL">
         <input type="hidden" name="item_name" value="Pagamento Fisso">
         <input type="hidden" name="amount" value="15.00">
         <input type="hidden" name="currency_code" value="EUR">
